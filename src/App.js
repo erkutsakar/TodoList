@@ -1,21 +1,24 @@
-import { useState, useEffect } from "react";
-import Button from 'react-bootstrap/Button';
 
+import {Form, Button} from 'react-bootstrap';
 
 function App() {
 
-const [counter, setCounter] = useState(0);
 
-useEffect( () => {
-  console.log(counter)
-}, [counter] )
+
 
 
   return (
-    <div className="App">
-  <div>{counter}</div>
-     <button onClick={ () => setCounter(prevCounter => prevCounter  + 1 ) }>increment</button>
-<Button>Hello</Button>
+    <div className="d-flex flex-column justify-content-center align-items-center mt-5">
+ 
+      <h1 className="mt-5">Todo List</h1>
+      <div className='d-flex w-60'>  
+        <Form.Control
+          placeholder="Username"
+          aria-label="Username"
+          aria-describedby="basic-addon1"
+        />
+         <Button>Add Todo</Button>
+         </div>
     </div>
   );
 }
