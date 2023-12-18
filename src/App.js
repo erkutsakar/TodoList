@@ -1,15 +1,22 @@
 
 import {Form, Button} from 'react-bootstrap';
-import React, { useEffect } from 'react'; 
-import { useState } from 'react';
+
+import { useEffect, useState } from 'react';
 
 function App() {
 
-
+const [todoList, setTodoList] = useState([])
 const [todo, setTodo] = useState('')
-useEffect(
-  () =>{console.log(todo)},[todo]
-)
+
+const addTodo = () =>
+{
+  setTodoList(prevTodoList => [...prevTodoList, todo])
+  setTodo('')
+}
+
+useEffect( () => {console.log(todoList)}, [todoList])
+
+
 
   return (
     <div className="d-flex flex-column justify-content-center align-items-center mt-5">
@@ -21,10 +28,17 @@ useEffect(
           value= {todo}  
           onChange={(e) => setTodo(e.target.value) }      
         />
-         <Button className='ms-5' onClick={() => console.log({todo})}>Add Todo</Button>
+         <Button className='ms-5' onClick={() => {addTodo()} }>Add Todo</Button>
+         </div>
+
+         <div>
+          Todolar
          </div>
     </div>
+  
+
+  
   );
-}
+  }
 
 export default App;
