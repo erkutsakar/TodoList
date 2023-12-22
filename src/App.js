@@ -1,7 +1,7 @@
 
 import {Form, Button} from 'react-bootstrap';
 
-import { useEffect, useState } from 'react';
+import {  useState } from 'react';
 
 function App() {
 
@@ -14,9 +14,8 @@ const addTodo = () =>
   setTodo('')
 }
 
-useEffect( () => {console.log(todoList)}, [todoList])
 
-
+// test
 
   return (
     <div className="d-flex flex-column justify-content-center align-items-center mt-5">
@@ -31,8 +30,11 @@ useEffect( () => {console.log(todoList)}, [todoList])
          <Button className='ms-5' onClick={() => {addTodo()} }>Add Todo</Button>
          </div>
 
-         <div>
-          Todolar
+         <div className='mt-5'>
+          {
+            todoList.map(
+              todoitem => <div key={todoitem}>{todoitem}</div>
+            )           }
          </div>
     </div>
   
